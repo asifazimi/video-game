@@ -30,6 +30,7 @@ const GameGrid = () => {
     <>
       {errors && <Text>{errors}</Text>}
       <ul>
+        <Text>it is game</Text>
         {games.map((game) => (
           <li key={game.id}>{game.name}</li>
         ))}
