@@ -8,8 +8,10 @@
   "compilerOptions": {
     "target": "ESNext",
     "module": "ESNext",
-    "moduleResolution": "Bundler",
+    "moduleResolution": "Node", // Change this
     "skipLibCheck": true,
+    "esModuleInterop": true,
+    "strict": true,
     "paths": {
       "@/*": ["./src/*"]
     }
