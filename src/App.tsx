@@ -14,11 +14,9 @@ function App() {
         <Navbar />
       </GridItem>
       {useBreakpointValue({ base: false, lg: true }) && (
-        <GridItem area="aside" bg="gold">
-          sidebar
-        </GridItem>
+        <GridItem area="aside">sidebar</GridItem>
       )}
-      <GridItem area="main" bg="dodgerblue">
+      <GridItem area="main">
         <GameGrid />
       </GridItem>
     </Grid>
