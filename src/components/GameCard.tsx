@@ -13,7 +13,6 @@ export const GameCard = ({ game }: Props) => {
         src={game.background_image}
         fit="cover"
         h="200px"
-        w="300px"
         alt={game.name}
       />
       <Card.Body gap="2">
