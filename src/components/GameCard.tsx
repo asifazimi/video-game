@@ -12,7 +12,7 @@ export const GameCard = ({ game }: Props) => {
   const url = game.background_image;
 
   return (
-    <Card.Root borderRadius={10} overflow="hidden">
+    <Card.Root borderRadius={10} overflow="hidden" width="300px">
       <Image
         src={getCroppedImageUrl(url)}
         fit="cover"
