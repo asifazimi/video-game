@@ -30,9 +30,17 @@ const PlatformIconList = ({ platforms }: Props) => {
     web: BsGlobe,
   };
 
+  const filteredPlatforms = platforms
+    .map((platform) => ({
+      id: platform.id,
+      name: platform.name,
+      slug: platform.slug,
+      icon: iconMap[platform.slug] || null,
+    }))
+    .filter((entry) => entry.icon !== null);
   return (
     <HStack marginY={1}>
-      {platforms.map((platform) => (
+      {filteredPlatforms.map((platform) => (
         <Icon
           as={iconMap[platform.slug]}
           color="gray.500"
