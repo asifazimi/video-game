@@ -7,8 +7,14 @@ import {
 } from "../components/ui/menu";
 import { IoMdArrowDropdown } from "react-icons/io";
 import usePlatforms from "../hooks/usePlatforms";
+import { Platform } from "../hooks/useGames";
 
-const PlatformSelector = () => {
+interface Props {
+  selectedPlatform: Platform | null;
+  onSelectPlatform: (platform: Platform) => void;
+}
+
+const PlatformSelector = ({ onSelectPlatform, selectedPlatform }: Props) => {
   const { data, errors } = usePlatforms();
 
   if (errors) return null;
@@ -16,14 +22,19 @@ const PlatformSelector = () => {
   return (
     <MenuRoot>
       <MenuTrigger margin={2} asChild>
-        <Button variant="outline" size="sm">
-          Platform <IoMdArrowDropdown />
+        <Button variant="surface" size="sm" focusRing="none">
+          {selectedPlatform ? selectedPlatform?.name : "Platform"}{" "}
+          <IoMdArrowDropdown />
         </Button>
       </MenuTrigger>
       <MenuContent>
         {data.map((platform) => {
           return (
-            <MenuItem key={platform.id} value={platform.slug}>
+            <MenuItem
+              key={platform.id}
+              value={platform.slug}
+              onClick={() => onSelectPlatform(platform)}
+            >
               {platform.name}
             </MenuItem>
           );
