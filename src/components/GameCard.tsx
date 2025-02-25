@@ -20,6 +20,7 @@ export const GameCard = ({ game }: Props) => {
           h="200px"
           alt={game.name}
           cursor="pointer"
+          width="100%"
         />
         <Card.Body gap="2">
           <Card.Title fontSize="1xl" cursor="pointer">
