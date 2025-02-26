@@ -3,19 +3,20 @@ import { Game } from "../hooks/useGames";
 import PlatformIconList from "./PlatformIconList";
 import CriticScore from "./CriticScore";
 import getCroppedImageUrl from "../services/image-url";
+import placeholderImage from "../assets/no-image-placeholder-6f3882e0.webp";
 
 interface Props {
   game: Game;
 }
 
 export const GameCard = ({ game }: Props) => {
-  const url = game?.background_image;
+  const url = game.background_image;
 
   return (
     <Card.Root>
       <Box>
         <Image
-          src={url ? getCroppedImageUrl(url) : "fallback-image.png"}
+          src={url ? getCroppedImageUrl(url) : placeholderImage}
           fit="cover"
           h="200px"
           alt={game.name}
