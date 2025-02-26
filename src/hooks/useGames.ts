@@ -25,8 +25,9 @@ const useGames = (gameQuery: GameQuery) =>
         genres: gameQuery.genre?.id,
         platforms: gameQuery.platform?.id,
         ordering: gameQuery.sort,
+        search: gameQuery.searchText,
       },
-    }, // Sending the platforms to the API
+    }, // Sending the platforms, genres, and ordering to the API
     [gameQuery]
   );
 
