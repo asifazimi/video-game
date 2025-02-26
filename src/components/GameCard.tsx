@@ -9,13 +9,13 @@ interface Props {
 }
 
 export const GameCard = ({ game }: Props) => {
-  const url = game.background_image;
+  const url = game?.background_image;
 
   return (
     <Card.Root>
       <Box>
         <Image
-          src={getCroppedImageUrl(url)}
+          src={url ? getCroppedImageUrl(url) : "fallback-image.png"}
           fit="cover"
           h="200px"
           alt={game.name}
