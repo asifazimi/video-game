@@ -44,6 +44,7 @@ function App() {
           }
         />
         <SortSelector
+          sort={gameQuery.sort}
           onSelectSort={(sort) => setGameQuery({ ...gameQuery, sort })}
         />
         <GameGrid gameQuery={gameQuery} />

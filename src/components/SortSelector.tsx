@@ -6,26 +6,25 @@ import {
   MenuItem,
 } from "../components/ui/menu";
 import { IoMdArrowDropdown } from "react-icons/io";
-import { useState } from "react";
 
 interface Props {
   onSelectSort: (sort: string) => void;
+  sort?: string;
 }
 
-const SortSelector = ({ onSelectSort }: Props) => {
+const SortSelector = ({ onSelectSort, sort }: Props) => {
   const selectors = [
-    { value: "Relevance", label: "Relevance" },
-    { value: "Data added", label: "Data added" },
-    { value: "Name", label: "Name" },
-    { value: "Release Date", label: "Release Date" },
-    { value: "Popularity", label: "Popularity" },
-    { value: "Average Rating", label: "Average Rating" },
+    { value: "", label: "Relevance" },
+    { value: "-added", label: "Data added" },
+    { value: "name", label: "Name" },
+    { value: "-released", label: "Release Date" },
+    { value: "-metacritic", label: "Popularity" },
+    { value: "-rating", label: "Average Rating" },
   ];
 
-  const [selectedLabel, setSelectedLable] = useState<string>("Relevance");
+  const currentSort = selectors.find((selector) => selector.value === sort);
 
   const handleSelector = (sort: string) => {
-    setSelectedLable(sort);
     onSelectSort(sort);
   };
 
@@ -33,8 +32,7 @@ const SortSelector = ({ onSelectSort }: Props) => {
     <MenuRoot>
       <MenuTrigger margin={2} asChild>
         <Button variant="surface" size="sm" focusRing="none">
-          Ordered by: {selectedLabel}
-          <IoMdArrowDropdown />
+          Ordered by: {currentSort?.label || "Relevance"} <IoMdArrowDropdown />
         </Button>
       </MenuTrigger>
       <MenuContent>
