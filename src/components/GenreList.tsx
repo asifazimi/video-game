@@ -1,4 +1,4 @@
-import { Box, HStack, Image, Link } from "@chakra-ui/react";
+import { Box, Heading, HStack, Image, Link } from "@chakra-ui/react";
 import useGenres, { Genre } from "../hooks/useGenres";
 import getCroppedImageUrl from "../services/image-url";
 import GenreSkeleton from "./GenreSkeleton";
@@ -24,6 +24,7 @@ const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
           return <GenreSkeleton key={sk} />;
         })}
       <Box listStyleType="none">
+        <Heading marginY={2}>Genres</Heading>
         {data.map((genre) => (
           <Box key={genre.id} paddingY="5px">
             <HStack>
@@ -31,6 +32,7 @@ const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
                 src={getCroppedImageUrl(genre.image_background)}
                 borderRadius={8}
                 boxSize="32px"
+                objectFit="cover"
               />
               <Link
                 fontWeight={genre.id === selectedGenre?.id ? "bold" : "normal"}
