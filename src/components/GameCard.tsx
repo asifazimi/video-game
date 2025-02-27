@@ -24,15 +24,15 @@ export const GameCard = ({ game }: Props) => {
           width="100%"
         />
         <Card.Body gap="2">
-          <Card.Title fontSize="1xl" cursor="pointer">
-            {game.name}
-          </Card.Title>
           <Stack direction="row" justify="space-between">
             <PlatformIconList
               platforms={game.parent_platforms.map((p) => p.platform)}
             />
             <CriticScore score={game.metacritic} />
           </Stack>
+          <Card.Title fontSize="1xl" cursor="pointer">
+            {game.name}
+          </Card.Title>
         </Card.Body>
       </Box>
     </Card.Root>
