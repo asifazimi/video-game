@@ -11,7 +11,13 @@ export interface ColorModeProviderProps extends ThemeProviderProps {}
 
 export function ColorModeProvider(props: ColorModeProviderProps) {
   return (
-    <ThemeProvider attribute="class" disableTransitionOnChange {...props} />
+    <ThemeProvider
+      attribute="class"
+      defaultTheme="system"
+      enableSystem={true}
+      disableTransitionOnChange
+      {...props}
+    />
   );
 }
 
@@ -25,6 +31,7 @@ export interface UseColorModeReturn {
 
 export function useColorMode(): UseColorModeReturn {
   const { resolvedTheme, setTheme } = useTheme();
+
   const toggleColorMode = () => {
     setTheme(resolvedTheme === "dark" ? "light" : "dark");
   };
@@ -51,7 +58,7 @@ export const ColorModeButton = React.forwardRef<
   HTMLButtonElement,
   ColorModeButtonProps
 >(function ColorModeButton(props, ref) {
-  const { toggleColorMode } = useColorMode();
+  const { toggleColorMode, colorMode } = useColorMode();
   return (
     <ClientOnly fallback={<Skeleton boxSize="8" />}>
       <IconButton

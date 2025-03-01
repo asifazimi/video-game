@@ -14,6 +14,7 @@
     "@chakra-ui/theme-tools": "^2.2.6",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
+    "@tanstack/react-query": "^5.66.9",
     "axios": "^1.7.9",
     "dotenv": "^16.4.7",
     "framer-motion": "^12.4.3",

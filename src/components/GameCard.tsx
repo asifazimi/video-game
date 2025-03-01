@@ -27,7 +27,7 @@ export const GameCard = ({ game }: Props) => {
         <Card.Body gap="2">
           <Stack direction="row" justify="space-between">
             <PlatformIconList
-              platforms={game.parent_platforms.map((p) => p.platform)}
+              platforms={game.parent_platforms?.map((p) => p.platform) ?? []}
             />
             <CriticScore score={game.metacritic} />
           </Stack>

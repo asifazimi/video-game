@@ -8,6 +8,7 @@ import PlatformSelector from "./components/PlatformSelector";
 import { Platform } from "./hooks/useGames";
 import SortSelector from "./components/SortSelector";
 import GameHeading from "./components/GameHeading";
+import Todolist from "./components/Todolist";
 
 export interface GameQuery {
   genre?: Genre;
@@ -41,6 +42,7 @@ function App() {
         </GridItem>
       )}
       <GridItem area="main">
+        <Todolist />
         <GameHeading gameQuery={gameQuery} />
         <PlatformSelector
           selectedPlatform={gameQuery.platform ?? null}
