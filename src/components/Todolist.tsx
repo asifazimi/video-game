@@ -7,7 +7,7 @@ const Todolist = () => {
 
   if (error) return <div>{error.message}</div>;
 
-  console.log(todos);
+  // console.log(todos);
 
   return (
     <div></div>
