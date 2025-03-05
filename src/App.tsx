@@ -8,7 +8,7 @@ import PlatformSelector from "./components/PlatformSelector";
 import { Platform } from "./hooks/useGames";
 import SortSelector from "./components/SortSelector";
 import GameHeading from "./components/GameHeading";
-// import PostList from "./components/PostList";
+import PostList from "./components/PostList";
 
 export interface GameQuery {
   genre?: Genre;

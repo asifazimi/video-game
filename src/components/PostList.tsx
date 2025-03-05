@@ -1,28 +1,34 @@
-import { useState } from "react";
+import React from "react";
 import usePosts from "../hooks/usePosts";
 import { Button, Stack } from "@chakra-ui/react";
 
 const PostList = () => {
   const pageSize = 10;
-  const [page, setPage] = useState(1);
 
-  const { data } = usePosts({ page, pageSize });
+  const { data, isLoading, error, fetchNextPage, isFetchingNextPage } =
+    usePosts({ pageSize });
+
+  if (isLoading) return <p>Loading...</p>;
+  if (error) return <p>{error.message}</p>;
 
   return (
     <>
       <ul>
-        {data?.map((post) => (
-          <li key={post.id}>
-            <h2>{post.title}</h2>
-            <p>{post.body}</p>
-          </li>
+        {data?.pages.map((page, index) => (
+          <React.Fragment key={index}>
+            {page.map((post) => (
+              <li key={post.id}>
+                <h2>{post.title}</h2>
+                <p>{post.body}</p>
+              </li>
+            ))}
+          </React.Fragment>
         ))}
       </ul>
       <Stack direction="row" gap="4" align="center" marginY={2}>
-        <Button disabled={page === 1} onClick={() => setPage(page - 1)}>
-          Previous
+        <Button disabled={isFetchingNextPage} onClick={() => fetchNextPage()}>
+          {isFetchingNextPage ? "Loading..." : "Load More"}
         </Button>
-        <Button onClick={() => setPage(page + 1)}>Next</Button>
       </Stack>
     </>
   );
