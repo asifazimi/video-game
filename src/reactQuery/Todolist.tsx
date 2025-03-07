@@ -1,4 +1,4 @@
-import useTodo from "../hooks/useTodo";
+import useTodo from "./hooks/useTodo";
 
 const Todolist = () => {
   const { data: todos, error, isLoading } = useTodo();
@@ -10,12 +10,11 @@ const Todolist = () => {
   // console.log(todos);
 
   return (
-    <div></div>
-    // <ul>
-    //   {todos?.map((todo) => {
-    //     return <li key={todo.id}>{todo.title}</li>;
-    //   })}
-    // </ul>
+    <ul>
+      {todos?.map((todo) => {
+        return <li key={todo.id}>{todo.title}</li>;
+      })}
+    </ul>
   );
 };
 
