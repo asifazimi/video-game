@@ -7,8 +7,6 @@ const Todolist = () => {
 
   if (error) return <div>{error.message}</div>;
 
-  // console.log(todos);
-
   return (
     <ul>
       {todos?.map((todo) => {
