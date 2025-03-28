@@ -9,9 +9,9 @@ interface Props {
 }
 
 const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
-  const { data, errors, loading } = useGenres();
+  const { data, error, isLoading } = useGenres();
 
-  if (errors) return null;
+  if (error) return null;
 
   const skeletons = [
     1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19,
@@ -19,13 +19,13 @@ const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
 
   return (
     <>
-      {loading &&
+      {isLoading &&
         skeletons.map((sk) => {
           return <GenreSkeleton key={sk} />;
         })}
       <Box listStyleType="none">
         <Heading marginY={2}>Genres</Heading>
-        {data.map((genre) => (
+        {data?.map((genre) => (
           <Box key={genre.id} paddingY="5px">
             <HStack>
               <Image
