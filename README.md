@@ -1,50 +1,123 @@
-# React + TypeScript + Vite
+# 🎮 Game Explorer - Indie Game Search App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive and interactive React + TypeScript application for exploring Android Indie Games. Users can search, filter by genre or platform, and sort games based on various criteria such as name, popularity, or release date.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🧰 Tech Stack
 
-## Expanding the ESLint configuration
+- **Framework**: [React.js](https://reactjs.org/)
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **Styling**: [Chakra UI](https://chakra-ui.com/)
+- **Data Fetching**: [React Query](https://tanstack.com/query/latest)
+- **State Management**: Context API & React Query
+- **Routing**: React Router DOM
+- **Bundler**: [Vite](https://vitejs.dev/)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+---
 
-- Configure the top-level `parserOptions` property like this:
+## 📁 Project Structure
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```
+.vscode/             # VS Code settings
+dist/                # Build output
+node_modules/        # Project dependencies
+public/              # Static assets
+src/
+├── assets/          # Images and media files
+├── components/      # Reusable UI components
+├── data/            # Static data or mock data
+├── hooks/           # Custom React hooks
+├── services/        # API service logic
+├── App.tsx          # Main app component
+├── index.css        # Global styles
+├── main.tsx         # Entry point
+├── test.ts          # Test file (if any)
+├── vite-env.d.ts    # Vite TypeScript config
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+---
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+## 🔍 Features
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+- 🎮 Browse Android indie games by genre
+- 📱 Filter by platform (Android, iOS, PC, Console, etc.)
+- 🔤 Sort by:
+  - Name
+  - Release Date
+  - Relevance
+  - Popularity
+  - Rating
+- 🔎 Search bar for finding games by name
+- ⚡️ Fully responsive and mobile-friendly design
+- ☁️ Data fetching and caching using React Query
+- 📦 State sharing across components using Context API
+
+---
+
+## ▶️ Getting Started
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/asifazimi/video-game.git
+cd vidoe-game
 ```
+
+### 2. Install dependencies
+
+```bash
+npm install
+# or
+yarn
+```
+
+### 3. Run the development server
+
+```bash
+npm run dev
+# or
+yarn dev
+```
+
+### 4. Build the project
+
+```bash
+npm run build
+# or
+yarn build
+```
+
+### 5. Preview the production build
+
+```bash
+npm run preview
+# or
+yarn preview
+```
+
+---
+
+## 📷 Demo
+
+- Sidebar with genre categories
+- Filterable and sortable grid of games
+- Cross-platform icons and rating badges
+- Search functionality at the top
+- Fully dark-themed and Chakra UI styled
+
+---
+
+## 📌 Notes
+
+- Ensure you have **Node.js** and **npm/yarn** installed.
+- The project uses **Vite** for fast development and build times.
+- TypeScript ensures better maintainability and type safety.
+
+---
+
+## 🤝 Contributions
+
+Feel free to fork, open issues, or submit pull requests.
+
+---
