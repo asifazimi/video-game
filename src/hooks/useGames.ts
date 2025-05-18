@@ -1,7 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
 import { GameQuery } from "../App";
 import apiClients from "../services/api-clients";
-import { FetchResponse } from "./useData";
+import { FetchResponse } from "../services/api-clients";
+
 // import useData from "./useData";
 
 export interface Platform {
@@ -21,19 +22,22 @@ export interface Game {
   rating_top: number;
 }
 
-// const useGames = (gameQuery: GameQuery) =>
-//   useData<Game>(
-//     "/games",
-//     {
-//       params: {
-//         genres: gameQuery.genre?.id,
-//         platforms: gameQuery.platform?.id,
-//         ordering: gameQuery.sort,
-//         search: gameQuery.searchText,
-//       },
-//     }, // Sending the platforms, genres, and ordering to the API
-//     [gameQuery]
-//   );
+/*
+const useGames = (gameQuery: GameQuery) =>
+  useData<Game>(
+    "/games",
+    {
+      params: {
+        genres: gameQuery.genre?.id,
+        platforms: gameQuery.platform?.id,
+        ordering: gameQuery.sort,
+        search: gameQuery.searchText,
+      },
+    }, // Sending the platforms, genres, and ordering to the API
+    [gameQuery]
+  );
+  */
+// The above code is commented out because we are using react-query instead of useData
 
 const useGames = (gameQuery: GameQuery) =>
   useQuery<FetchResponse<Game>, Error>({

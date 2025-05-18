@@ -1,12 +1,10 @@
-import { AxiosRequestConfig, CanceledError } from "axios";
-import { useEffect, useState } from "react";
-import apiClients from "../services/api-clients";
+// import { AxiosRequestConfig, CanceledError } from "axios";
+// import { useEffect, useState } from "react";
+// import apiClients from "../services/api-clients";
 
-export interface FetchResponse<T> {
-  count: number;
-  results: T[];
-}
 
+
+/*
 const useData = <T>(
   endpoint: string,
   requestConfig?: AxiosRequestConfig,
@@ -45,3 +43,6 @@ const useData = <T>(
 };
 
 export default useData;
+*/
+
+// The above code is commented out because we are using react-query instead of useData

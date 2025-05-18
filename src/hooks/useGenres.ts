@@ -1,7 +1,7 @@
 import genres from "../data/genres";
 import { useQuery } from "@tanstack/react-query";
 import apiClients from "../services/api-clients";
-import { FetchResponse } from "./useData";
+import { FetchResponse } from "../services/api-clients";
 
 export interface Genre {
   id: number;
@@ -24,7 +24,7 @@ const useGenres = () =>
       apiClients
         .get<FetchResponse<Genre>>("/genres")
         .then((res) => res.data.results),
-    staleTime: 24 * 60 * 60 * 1000, // 24 hours,
+    staleTime: 24 * 60 * 60 * 1000, // 24 hours, it means no request to the backend to fetch the genres within this time
     initialData: genres,
   });
 
