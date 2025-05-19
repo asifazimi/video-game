@@ -1,7 +1,7 @@
 import { Input, Kbd } from "@chakra-ui/react";
-import { InputGroup } from "./ui/input-group";
-import { LuSearch } from "react-icons/lu";
 import { useRef } from "react";
+import { LuSearch } from "react-icons/lu";
+import { InputGroup } from "./ui/input-group";
 
 interface Props {
   onSubmit: (searchText: string) => void;

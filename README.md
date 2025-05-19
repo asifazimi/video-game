@@ -1,10 +1,10 @@
-# 🎮 Game Explorer - Indie Game Search App
+# Game Explorer - Game Search App
 
 A responsive and interactive React + TypeScript application for exploring Android Indie Games. Users can search, filter by genre or platform, and sort games based on various criteria such as name, popularity, or release date.
 
 ---
 
-## 🧰 Tech Stack
+## Tech Stack
 
 - **Framework**: [React.js](https://reactjs.org/)
 - **Language**: [TypeScript](https://www.typescriptlang.org/)
@@ -16,7 +16,7 @@ A responsive and interactive React + TypeScript application for exploring Androi
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 .vscode/             # VS Code settings
@@ -38,24 +38,24 @@ src/
 
 ---
 
-## 🔍 Features
+## Features
 
-- 🎮 Browse Android indie games by genre
-- 📱 Filter by platform (Android, iOS, PC, Console, etc.)
-- 🔤 Sort by:
-  - Name
-  - Release Date
-  - Relevance
-  - Popularity
-  - Rating
-- 🔎 Search bar for finding games by name
-- ⚡️ Fully responsive and mobile-friendly design
-- ☁️ Data fetching and caching using React Query
-- 📦 State sharing across components using Context API
+- Browse Android indie games by genre
+- Filter by platform (Android, iOS, PC, Console, etc.)
+- Sort by:
+- Name
+- Release Date
+- Relevance
+- Popularity
+- Rating
+- Search bar for finding games by name
+- Fully responsive and mobile-friendly design
+- Data fetching and caching using React Query
+- State sharing across components using Context API
 
 ---
 
-## ▶️ Getting Started
+## Getting Started
 
 ### 1. Clone the repository
 
@@ -98,7 +98,14 @@ yarn preview
 
 ---
 
-## 📷 Demo
+### Clean Code
+
+- It is always a good idea to organize the imports, with organize imports shorcut
+- To avoid duplication of imports, we can use reference to go and check out where the import is used, so if not used anywhere in the code, delete it.
+
+---
+
+## Demo
 
 - Sidebar with genre categories
 - Filterable and sortable grid of games
@@ -108,7 +115,7 @@ yarn preview
 
 ---
 
-## 📌 Notes
+## Notes
 
 - Ensure you have **Node.js** and **npm/yarn** installed.
 - The project uses **Vite** for fast development and build times.
@@ -116,8 +123,6 @@ yarn preview
 
 ---
 
-## 🤝 Contributions
+## Contributions
 
 Feel free to fork, open issues, or submit pull requests.
-
----

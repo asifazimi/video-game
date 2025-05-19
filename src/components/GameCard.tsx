@@ -1,10 +1,10 @@
 import { Box, Card, Image, Stack } from "@chakra-ui/react";
-import { Game } from "../hooks/useGames";
-import PlatformIconList from "./PlatformIconList";
-import CriticScore from "./CriticScore";
-import getCroppedImageUrl from "../services/image-url";
 import placeholderImage from "../assets/no-image-placeholder-6f3882e0.webp";
+import { Game } from "../hooks/useGames";
+import getCroppedImageUrl from "../services/image-url";
+import CriticScore from "./CriticScore";
 import EmojiCard from "./EmojiCard";
+import PlatformIconList from "./PlatformIconList";
 
 interface Props {
   game: Game;

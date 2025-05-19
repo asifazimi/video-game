@@ -1,11 +1,11 @@
 import { Button } from "@chakra-ui/react";
-import {
-  MenuRoot,
-  MenuContent,
-  MenuTrigger,
-  MenuItem,
-} from "../components/ui/menu";
 import { IoMdArrowDropdown } from "react-icons/io";
+import {
+  MenuContent,
+  MenuItem,
+  MenuRoot,
+  MenuTrigger,
+} from "../components/ui/menu";
 
 interface Props {
   onSelectSort: (sort: string) => void;
