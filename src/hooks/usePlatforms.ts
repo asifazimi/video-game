@@ -1,13 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import platforms from "../data/platforms";
-import apiClients, { FetchResponse } from "../services/api-clients";
+import APIClient from "../services/api-clients";
 // import useData from "./useData";
-
-interface PlatformParent {
-  id: number;
-  name: string;
-  slug: string;
-}
 
 export interface Platform {
   id: number;
@@ -15,22 +9,20 @@ export interface Platform {
   slug: string;
 }
 
+const apiClient = new APIClient<Platform>("/platforms/lists/parents");
+
 // /platforms/lists/parents
 // const usePlatforms = () => {
 //   // return useData<PlatformParent>("/platforms/lists/parents");
 //   return { data: platforms, errors: null }; // we want to make the platforms to render statically
 // };
 
-const usePlatforms = () => {
-  return useQuery<PlatformParent[]>({
+const usePlatforms = () =>
+  useQuery({
     queryKey: ["platforms"],
-    queryFn: () =>
-      apiClients
-        .get<FetchResponse<PlatformParent>>("/platforms/lists/parents")
-        .then((res) => res.data.results),
+    queryFn: apiClient.getAll,
     staleTime: 24 * 60 * 60 * 1000,
-    initialData: platforms,
+    initialData: { count: platforms.length, results: platforms },
   });
-};
 
 export default usePlatforms;
