@@ -11,13 +11,6 @@ export interface Genre {
 
 const apiClient = new APIClient<Genre>("/genres");
 
-// const useGenres = () => useData<Genre>("/genres");
-// const useGenres = () => ({ data: genres, loading: false, errors: null }); // Here because we want to render the genres statically
-
-// const fetchGenres = () => {
-//   return axios.get<Genre[]>("/genres").then((res) => res.data);
-// };
-
 const useGenres = () =>
   useQuery({
     queryKey: ["genres"],

@@ -1,7 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import platforms from "../data/platforms";
 import APIClient from "../services/api-clients";
-// import useData from "./useData";
 
 export interface Platform {
   id: number;
@@ -10,12 +9,6 @@ export interface Platform {
 }
 
 const apiClient = new APIClient<Platform>("/platforms/lists/parents");
-
-// /platforms/lists/parents
-// const usePlatforms = () => {
-//   // return useData<PlatformParent>("/platforms/lists/parents");
-//   return { data: platforms, errors: null }; // we want to make the platforms to render statically
-// };
 
 const usePlatforms = () =>
   useQuery({
