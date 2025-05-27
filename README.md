@@ -101,7 +101,7 @@ yarn preview
 ### Clean Code
 
 - It is always a good idea to organize the imports, with organize imports shorcut
-- To avoid duplication of imports, we can use reference to go and check out where the import is used, so if not used anywhere in the code, delete it.
+- To avoid duplication of imports, we can use reference to go and check out where the import is used, so if not used anywhere in the code, we can delete it.
 
 ---
 
