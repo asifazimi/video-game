@@ -16,7 +16,7 @@ const useGenres = () =>
     queryKey: ["genres"],
     queryFn: apiClient.getAll,
     staleTime: 24 * 60 * 60 * 1000, // 24 hours, it means no request to the backend to fetch the genres within this time
-    initialData: { count: genres.length, next: null, results: genres },
+    initialData: genres, // This is used to provide initial data for the query, useful for faster loading
   });
 
 export default useGenres;
