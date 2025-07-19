@@ -1,21 +1,15 @@
 import { Grid, GridItem, useBreakpointValue } from "@chakra-ui/react";
-import { useState } from "react";
+import { useReducer } from "react";
 import GameGrid from "./components/GameGrid";
 import GameHeading from "./components/GameHeading";
 import GenreList from "./components/GenreList";
 import Navbar from "./components/Navbar";
 import PlatformSelector from "./components/PlatformSelector";
 import SortSelector from "./components/SortSelector";
-
-export interface GameQuery {
-  genreId?: number;
-  platformId?: number;
-  sort?: string;
-  searchText?: string;
-}
+import { gameQueryReducer } from "./hooks/GameQueryReducer";
 
 function App() {
-  const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery);
+  const [gameQuery, dispatch] = useReducer(gameQueryReducer, {});
 
   return (
     <Grid
@@ -25,32 +19,38 @@ function App() {
       }}
       templateColumns={{ base: "1fr", lg: "200px 1fr" }}
     >
+      {/* Search Bar */}
       <GridItem area="nav">
         <Navbar
-          onSubmit={(searchText) => setGameQuery({ ...gameQuery, searchText })}
+          onSubmit={(searchText) =>
+            dispatch({ type: "SET_SEARCH", payload: searchText })
+          }
         />
       </GridItem>
+      {/* Genre List and Main Content */}
       {useBreakpointValue({ base: false, lg: true }) && (
         <GridItem area="aside" paddingX={2}>
           <GenreList
             selectedGenreId={gameQuery.genreId}
             onSelectGenre={(genre) =>
-              setGameQuery({ ...gameQuery, genreId: genre.id })
+              dispatch({ type: "SET_GENRE", payload: genre.id })
             }
           />
         </GridItem>
       )}
+      {/* Platform Selector */}
       <GridItem area="main">
         <GameHeading gameQuery={gameQuery} />
         <PlatformSelector
           selectedPlatformId={gameQuery.platformId}
           onSelectPlatform={(platform) =>
-            setGameQuery({ ...gameQuery, platformId: platform.id })
+            dispatch({ type: "SET_PLATFORM", payload: platform.id })
           }
         />
+        {/* Sort Selector */}
         <SortSelector
           sort={gameQuery.sort}
-          onSelectSort={(sort) => setGameQuery({ ...gameQuery, sort })}
+          onSelectSort={(sort) => dispatch({ type: "SET_SORT", payload: sort })}
         />
         <GameGrid gameQuery={gameQuery} />
       </GridItem>
