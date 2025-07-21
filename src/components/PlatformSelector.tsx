@@ -6,17 +6,17 @@ import {
   MenuRoot,
   MenuTrigger,
 } from "../components/ui/menu";
-import usePlatforms, { Platform } from "../hooks/usePlatforms";
 import usePlatform from "../hooks/usePlatform";
+import usePlatforms from "../hooks/usePlatforms";
+import useGameQueryStore from "../store/gameQueryStore";
 
-interface Props {
-  selectedPlatformId?: number;
-  onSelectPlatform: (platform: Platform) => void;
-}
-
-const PlatformSelector = ({ onSelectPlatform, selectedPlatformId }: Props) => {
+const PlatformSelector = () => {
   const { data, error } = usePlatforms();
+
+  const selectedPlatformId = useGameQueryStore((s) => s.gameQuery.platformId);
   const selectedPlatform = usePlatform(selectedPlatformId || 0);
+
+  const setSelectedPlatformId = useGameQueryStore((s) => s.setPlatform);
 
   if (error) return null;
 
@@ -33,7 +33,7 @@ const PlatformSelector = ({ onSelectPlatform, selectedPlatformId }: Props) => {
             <MenuItem
               key={platform.id}
               value={platform.slug}
-              onClick={() => onSelectPlatform(platform)}
+              onClick={() => setSelectedPlatformId(platform.id)}
             >
               {platform.name}
             </MenuItem>

@@ -2,19 +2,17 @@ import { Input, Kbd } from "@chakra-ui/react";
 import { useRef } from "react";
 import { LuSearch } from "react-icons/lu";
 import { InputGroup } from "./ui/input-group";
+import useGameQueryStore from "../store/gameQueryStore";
 
-interface Props {
-  onSubmit: (searchText: string) => void;
-}
-
-const SearchInput = ({ onSubmit }: Props) => {
+const SearchInput = () => {
   const ref = useRef<HTMLInputElement>(null);
+  const setSearch = useGameQueryStore((s) => s.setSearch);
 
   return (
     <form
       onSubmit={(e) => {
         e.preventDefault();
-        if (ref) onSubmit(ref.current?.value || "");
+        if (ref) setSearch(ref.current?.value || "");
       }}
     >
       <InputGroup
