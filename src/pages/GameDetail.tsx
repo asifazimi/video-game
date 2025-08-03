@@ -2,6 +2,7 @@ import { Box, Heading, Spinner } from "@chakra-ui/react";
 import { useParams } from "react-router-dom";
 import ExpandableText from "../components/ExpandableText";
 import useGameDetails from "../hooks/useGameDetails";
+import GameAttribute from "../components/GameAttribute";
 
 const GameDetail = () => {
   const params = useParams();
@@ -13,9 +14,9 @@ const GameDetail = () => {
 
   return (
     <Box padding="1">
-      <Heading>{game.name}</Heading>
-      <img src={game.background_image} alt={game.slug} />
+      <Heading size="4xl">{game.name}</Heading>
       <ExpandableText>{game.description_raw ?? ""}</ExpandableText>
+      <GameAttribute game={game} />
     </Box>
   );
 };
