@@ -21,7 +21,13 @@ const GenreList = () => {
         skeletons.map((sk) => {
           return <GenreSkeleton key={sk} />;
         })}
-      <Box listStyleType="none">
+      <Box
+        listStyleType="none"
+        position="sticky"
+        top="0"
+        zIndex={10}
+        paddingX={2}
+      >
         <Heading marginY={2}>Genres</Heading>
         {data?.results?.map((genre) => (
           <Box key={genre.id} paddingY="5px">
