@@ -1,11 +1,11 @@
 import { Box, Card, HoverCard, Image, Stack } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import placeholderImage from "../assets/no-image-placeholder-6f3882e0.webp";
+import Game from "../entities/Game";
 import getCroppedImageUrl from "../services/image-url";
 import CriticScore from "./CriticScore";
 import EmojiCard from "./EmojiCard";
 import PlatformIconList from "./PlatformIconList";
-import { Game } from "../entities/Game";
 
 interface Props {
   game: Game;

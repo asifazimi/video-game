@@ -1,4 +1,4 @@
-export interface GameTrail {
+export default interface GameTrail {
   id: number;
   name: string;
   preview: string;
