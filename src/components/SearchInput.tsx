@@ -3,10 +3,12 @@ import { useEffect, useRef } from "react";
 import { LuSearch } from "react-icons/lu";
 import { InputGroup } from "./ui/input-group";
 import useGameQueryStore from "../store/gameQueryStore";
+import { useNavigate } from "react-router-dom";
 
 const SearchInput = () => {
   const ref = useRef<HTMLInputElement>(null);
   const setSearch = useGameQueryStore((s) => s.setSearch);
+  const navigate = useNavigate();
 
   const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -15,6 +17,7 @@ const SearchInput = () => {
       if (ref.current) {
         ref.current.value = "";
         ref.current.blur();
+        navigate("/");
       }
     } else {
       setSearch(""); // Clear search if ref is not available
