@@ -8,6 +8,18 @@ const SearchInput = () => {
   const ref = useRef<HTMLInputElement>(null);
   const setSearch = useGameQueryStore((s) => s.setSearch);
 
+  const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (ref) {
+      setSearch(ref.current?.value || "");
+      if (ref.current) {
+        ref.current.value = "";
+      }
+    } else {
+      setSearch(""); // Clear search if ref is not available
+    }
+  };
+
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === "k") {
@@ -23,12 +35,7 @@ const SearchInput = () => {
   }, []);
 
   return (
-    <form
-      onSubmit={(e) => {
-        e.preventDefault();
-        if (ref) setSearch(ref.current?.value || "");
-      }}
-    >
+    <form onSubmit={handleSearch}>
       <InputGroup
         flex="1"
         startElement={<LuSearch />}
