@@ -14,6 +14,7 @@ const SearchInput = () => {
       setSearch(ref.current?.value || "");
       if (ref.current) {
         ref.current.value = "";
+        ref.current.blur();
       }
     } else {
       setSearch(""); // Clear search if ref is not available

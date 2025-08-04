@@ -4,6 +4,7 @@ import ExpandableText from "../components/ExpandableText";
 import GameAttribute from "../components/GameAttribute";
 import useGameDetails from "../hooks/useGameDetails";
 import GameTrailer from "../components/GameTrailer";
+import GameScreenshots from "../components/GameScreenshots";
 
 const GameDetail = () => {
   const params = useParams();
@@ -20,6 +21,7 @@ const GameDetail = () => {
       <ExpandableText>{game.description_raw ?? ""}</ExpandableText>
       <GameAttribute game={game} />
       <GameTrailer gameId={game.id} />
+      <GameScreenshots gameId={game.id} />
     </Box>
   );
 };
